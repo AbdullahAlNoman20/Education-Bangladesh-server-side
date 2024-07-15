@@ -112,7 +112,8 @@ async function run() {
       res.send(result)
     })
 
-    app.put('/updateNots/:id',async(req,res)=>{
+    app.put('/nots/:id',async(req,res)=>{
+      
       const id = req.params.id;
       const filter = {_id: new ObjectId(id)}
       const options = {upsert: true}
@@ -128,12 +129,6 @@ async function run() {
       const result = await notesCollection.updateOne(filter,note,options)
       res.send(result)
     })
-
-
-
-
-
-
 
 
 
